@@ -14,6 +14,10 @@ const InstagramPost = (props) => {
                 <p>{userName}</p>
                 <p>{caption}</p>
             </div>
+            <input onChange={(event) =>{
+                    console.log(event);
+                }}
+            />
         </div>
 
     )
