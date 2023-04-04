@@ -29,6 +29,7 @@ export default App;
 
 
 import React from "react";
+import ListItem from "./ListItem.js";
 
 
 
@@ -57,7 +58,7 @@ function App(){
       <ul>
         {
           listItems.map((item,index) => {
-            return(<li key={index}>{item}</li>)
+            return(<ListItem/> )
             
           })
         }
