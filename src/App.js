@@ -34,7 +34,8 @@ import React from "react";
 
 
 function App(){
-  const[listItem,setListItem] = React.useState([]);
+  const [userEnteredTodo,setEnterTodo] = React.useState();
+  const[listItems,setListItem] = React.useState([]);
   // this is basically 
 
   /*
@@ -48,7 +49,7 @@ function App(){
     <div>
       <ul>
         {
-          listItem.map((item,index) => {
+          listItems.map((item,index) => {
             return(<li key={index}>{item}</li>)
             
           })
@@ -56,10 +57,19 @@ function App(){
 
       </ul>
       <input 
-        onChange={(event)=> 
-        setListItem(event.target.value)
-        }
+        onChange={(event)=> {
+          setEnterTodo(event.target.value)
+          console.log(setEnterTodo)
+        // setListItem([event.target.value])
+        }}
         />
+        <button
+          onClick={() =>{
+            setListItem([
+              ...listItems,userEnteredTodo
+            ])
+          }}
+        >add</button>
     </div>
   );
 };
