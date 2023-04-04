@@ -34,7 +34,7 @@ import React from "react";
 
 
 function App(){
-  const [userEnteredTodo,setEnterTodo] = React.useState();
+  const [userEnteredTodo,setEnterTodo] = React.useState("");
   const[listItems,setListItem] = React.useState([]);
   // this is basically 
 
@@ -59,16 +59,20 @@ function App(){
       <input 
         onChange={(event)=> {
           setEnterTodo(event.target.value)
-          console.log(setEnterTodo)
         // setListItem([event.target.value])
         }}
+         // add logic to clear input
+         value={userEnteredTodo}
         />
         <button
           onClick={() =>{
             setListItem([
               ...listItems,userEnteredTodo
             ])
+            setEnterTodo("");
+
           }}
+
         >add</button>
     </div>
   );
