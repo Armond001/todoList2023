@@ -45,6 +45,13 @@ function App(){
   }
   */
 
+  const saveItemClearInput = () =>{
+    setListItem([
+      ...listItems,userEnteredTodo
+    ])
+    setEnterTodo("");
+  }
+
   return(
     <div>
       <ul>
@@ -57,19 +64,29 @@ function App(){
 
       </ul>
       <input 
+
         onChange={(event)=> {
           setEnterTodo(event.target.value)
         // setListItem([event.target.value])
         }}
+
+        onKeyDown={(event) =>{
+
+          if (event.key=="Enter"){
+            saveItemClearInput()
+          }
+         // setEnterTodo(even,target,value)
+        }}
+
          // add logic to clear input
          value={userEnteredTodo}
+
         />
+
+
         <button
           onClick={() =>{
-            setListItem([
-              ...listItems,userEnteredTodo
-            ])
-            setEnterTodo("");
+            saveItemClearInput()
 
           }}
 
