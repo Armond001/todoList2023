@@ -29,14 +29,14 @@ export default App;
 
 
 import React from "react";
-import ListItem from "./ListItem.js";
+import ListItem from "./ListItem";
 
 
 
 
 function App(){
   const [userEnteredTodo,setEnterTodo] = React.useState("");
-  const[listItems,setListItem] = React.useState([]);
+  const[listItems,setListItems] = React.useState([]);
   // this is basically 
 
   /*
@@ -47,7 +47,7 @@ function App(){
   */
 
   const saveItemClearInput = () =>{
-    setListItem([
+    setListItems([
       ...listItems,userEnteredTodo
     ])
     setEnterTodo("");
@@ -58,7 +58,15 @@ function App(){
       <ul>
         {
           listItems.map((item,index) => {
-            return(<ListItem/> )
+              return(
+                <ListItem 
+                item ={ item}
+                key={index}
+                index={index}
+                listItems={listItems}
+                setListItems={setListItems}
+                /> 
+              )
             
           })
         }
@@ -73,7 +81,7 @@ function App(){
 
         onKeyDown={(event) =>{
 
-          if (event.key=="Enter"){
+          if (event.key==="Enter"){
             saveItemClearInput()
           }
          // setEnterTodo(even,target,value)
