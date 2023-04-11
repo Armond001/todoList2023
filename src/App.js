@@ -30,6 +30,7 @@ export default App;
 
 import React from "react";
 import ListItem from "./ListItem";
+import Input from "./Input";
 
 
 
@@ -91,7 +92,26 @@ function App(){
          value={userEnteredTodo}
 
         />
+        <Input
+        
+        onChange={(event)=> {
+          setEnterTodo(event.target.value)
+        // setListItem([event.target.value])
+        }}
 
+        onKeyDown={(event) =>{
+
+          if (event.key==="Enter"){
+            saveItemClearInput()
+          }
+         // setEnterTodo(even,target,value)
+        }}
+
+         // add logic to clear input
+         value={userEnteredTodo}
+
+        
+        />
 
         <button
           onClick={() =>{
