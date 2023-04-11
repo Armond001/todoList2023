@@ -1,9 +1,8 @@
 const Input =(props) => {
     const {name,...rest}=props;
     return (
-        <Input
-            {...rest}
-        />
+      <input{...rest}></input>
+        
     )
 }
 export default Input

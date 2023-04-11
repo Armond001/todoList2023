@@ -2,7 +2,7 @@ import React from "react";
 import "./ListItem.css";
 
 const ListItem = (props) => {
-     const {item,index,listItems,setListItems}=props;
+     const {item,index,listItems,setListItems,onMouseOver}=props;
      const deletelistitem = (index) =>{
       // const removeItem = listItems.splice(index,1);
        // console.log("removeItem", removeItem);
@@ -12,13 +12,38 @@ const ListItem = (props) => {
        ])
      }
 
+const [showDeleteButton,setShowDeleteButton]= React.useState(false);
+
+const handleMouseEnter = () => {
+    console.log("mouse enter");
+    setShowDeleteButton=(true);
+}
+
+const handleMouseLeave = () => {
+    console.log("mouse leave");
+    setShowDeleteButton=(false);
+}
+
 
     return(
         <>
-        <li>{item}
-        <button onClick={
-            () => {deletelistitem(index)}}>delete</button>
-        </li>
+        <li 
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+        
+        {item}
+
+        {
+            showDeleteButton ?
+
+            <button onClick={
+                () => {deletelistitem(index)}}>delete
+            </button>
+
+            :null
+         } 
+            </li>
         </>
     )
 }
